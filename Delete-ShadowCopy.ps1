@@ -11,5 +11,5 @@ $copies = Get-WmiObject -Class win32_shadowcopy | ? {$_.VolumeName -eq $DeviceID
 foreach ($copy in $copies)
 {
     ((Get-WmiObject -Class win32_shadowcopy) |? {$_.ID -eq $copy.id}).delete()
-    Write-host $copy
+    Write-host $copy deleted
 }
